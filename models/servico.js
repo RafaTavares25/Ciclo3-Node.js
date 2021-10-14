@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Servico.belongsToMany(models.Pedido,{
+        through: 'ItemPedido'
+      });
     }
   };
   Servico.init({
