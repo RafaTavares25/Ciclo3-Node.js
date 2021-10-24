@@ -11,15 +11,15 @@ module.exports = {
       nome: {
         type: Sequelize.STRING
       },
-      endereco: {
-        type: Sequelize.STRING
+      endereco: { 
+        type: Sequelize.STRING 
       },
       cidade: {
         type: Sequelize.STRING
       },
-      uf: {
+      uf: { 
         type: Sequelize.STRING
-      },
+       },
       nascimento: {
         type: Sequelize.DATEONLY
       },

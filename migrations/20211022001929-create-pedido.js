@@ -11,19 +11,19 @@ module.exports = {
       data: {
         type: Sequelize.DATEONLY
       },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      ClienteId : {
-        allowNull : false,
+      ClienteId: {
         type: Sequelize.INTEGER,
-        references: {
+        allowNull: false,
+        references:{
           model: 'clientes',
           key: 'id'
         },
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
