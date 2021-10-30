@@ -283,6 +283,26 @@ app.get('/servico/:id', async (req, res) => {
         });
 });
 
+app.get('/servico/:id/pedidos', async (req, res) => {
+
+    if (!await servico.findByPk(req.params.id, { include: [{ all: true }] })) {
+        return res.json({
+            error: true,
+            message: "Este serviço não existe."
+        })
+    }
+
+    await itempedido.findAll( {where: {ServicoId: req.params.id}},{ include: [{ all: true }] })
+        .then(item => {
+            return res.json({ item });
+        }).catch(erro => {
+            return res.status(400).json({
+                error: true,
+                message: "Não pois possível consultar este serviço"
+            });
+        });
+});
+
 app.get('/produto/:id', async (req, res) => {
 
     if (!await produto.findByPk(req.params.id, { include: [{ all: true }] })) {
